@@ -1,0 +1,119 @@
+{% extends 'nav.html' %}
+{% block nav %}
+
+<div class="container-fluid p-4">
+    <div class="d-flex justify-content-center">
+        <h1>Your Bookings</h1>
+    </div>
+</div>
+{% if messages %}
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success alert-dismissible">
+                {{ message }} 
+            </div>
+        {% endif %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger alert-dismissible">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% for i in booked %}
+    <div class="container-fluid p-4">
+        <div class="row border p-3 shadow">
+            <div id="carouselExampleControls{{ forloop.counter }}" class="carousel slide col" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% if i.room.image1 %}
+                      <div class="carousel-item active">
+                        <img src="{{ i.room.image1.url }}" class="d-block" style="width:580px; height:330px;" alt="...">
+                      </div>
+                    {% endif %}
+                    {% if i.room.image2 %}
+                      <div class="carousel-item {% if not i.room.image1 %}active{% endif %}">
+                        <img src="{{ i.room.image2.url }}" class="d-block" style="width:580px; height:330px;" alt="...">
+                      </div>
+                    {% endif %}
+                    {% if i.room.image3 %}
+                      <div class="carousel-item {% if not i.room.image1 and not i.room.image2 %}active{% endif %}">
+                        <img src="{{ i.room.image3.url }}" class="d-block" style="width:550px; height:330px;" alt="...">
+                      </div>
+                    {% endif %}
+                    {% if i.room.image4 %}
+                      <div class="carousel-item {% if not i.room.image1 and not i.room.image2 and not i.room.image3 %}active{% endif %}">
+                        <img src="{{ i.room.image4.url }}" class="d-block" style="width:580px; height:350px;" alt="...">
+                      </div>
+                    {% endif %}
+                    {% if i.room.image5 %}
+                      <div class="carousel-item {% if not i.room.image1 and not i.room.image2 and not i.room.image3 and not i.room.image4 %}active{% endif %}">
+                        <img src="{{ i.room.image5.url }}" class="d-block" style="width:580px; height:350px;" alt="...">
+                      </div>
+                    {% endif %}
+                </div>
+                  
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls{{ forloop.counter }}" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls{{ forloop.counter }}" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <div class="col d-flex flex-column p-3">
+              <!-- <h1 style="font-family: 'Brush Script MT', cursive; color: rgb(101, 25, 25); text-transform: capitalize;">{{ i.type }}</h1> -->
+              <h1 class="mb-4">{{ i.room.type }}</h1>
+              <div>
+                <p class="ms-2" >
+                    Room Type : {{ i.room.title }}
+                  </p>
+                <p class="ms-2" >
+                  Total Rent : Rs. {{ i.total_rent }}
+                </p>
+                <p class="ms-2" >
+                   Number Of Days : {{ i.number_of_days }}
+                </p>
+                <p class="ms-2">
+                  Check-in-date : {{ i.check_in_date }}
+                </p>
+                <div class="d-flex justify-content-between">
+                    {% if i.status == 'confirmed' %}
+                    <p>Status : {{i.status}}</p>
+                    {% endif %}
+                    {% if i.status == 'pending' %}
+                    <p>Status : {{ i.status }}</p>
+                    <a class="btn btn-outline-danger" href="{% url 'cancel' i.id %}" style="color: rgb(101, 25, 25); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 18px;">Cancel Booking</a>
+                    {% endif %}
+
+  
+                </div>
+
+              </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+<style>
+    h2,h1{
+        font-family: 'Brush Script MT', cursive;
+        color: rgb(47, 10, 10);
+        text-transform: capitalize;
+    }
+    p{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+        color: rgb(101, 25, 25);
+        font-size: 17px;
+        text-transform: capitalize;
+        font-weight: 800;
+
+    }
+    h4{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+        color: rgb(101, 25, 25);
+    }
+    
+</style>
+{% endblock nav %}

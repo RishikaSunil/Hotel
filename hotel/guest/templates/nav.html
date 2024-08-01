@@ -1,0 +1,104 @@
+
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <style>
+            .brand-space {
+    margin-left: 0.80em;
+    color: bisque;
+    font-family:emoji;
+}
+.navbar-brand{
+    font-family:emoji;
+    color: bisque;
+}
+.navbar{
+    /* background-color: rgba(192, 58, 58); */
+    background-color: rgb(199, 80, 80);
+
+}
+.nav-link {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: aliceblue;
+    
+}
+
+.nav-link:hover, .nav-link:focus, .nav-link:active {
+    color: rgb(97, 17, 17); 
+           
+        }
+a.selected{
+    color: rgb(97, 17, 17); 
+   
+}
+#lout{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: aliceblue;
+  text-decoration: none;
+  
+  
+
+}
+
+        </style>
+        
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+            <div class="container-fluid">
+              <a id="b" class="navbar-brand" href="javascript:void(0)">COZY  <i class="fa-regular fa-snowflake" style="color: bisque;"></i><br><span class="brand-space">HAVEN</span></a>
+              <!-- <i class="fa-regular fa-snowflake" style="color: #dbaecd;"></i> -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'home' %}">Overview</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'gal' %}">Gallery</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blist' %}">Your Bookings</a>
+                  </li> 
+                </ul>
+                <a id="lout" class="ms-auto me-3" href="{% url 'out' %}" ><i class="fa-solid fa-right-from-bracket" style="color: bisque;"></i>Logout</a>
+              </div>
+            </div>
+          </nav>
+          {% block nav %}
+          {% endblock nav %}
+
+    </body>
+</html>

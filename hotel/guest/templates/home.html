@@ -1,0 +1,118 @@
+
+{% extends 'nav.html' %}
+{% block nav %}
+{% if messages %}
+{% for i in messages %}
+{% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>{{i}}</strong>
+</div>
+{% endif %}
+{% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>{{i}}</strong>
+</div>
+{% endif %}
+{%endfor%}
+{%endif%}
+<div class="d-flex justify-content-center text-danger">
+<h4 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">WELCOME TO COZY HAVEN , <SPan style="text-transform: capitalize;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{request.user.first_name}}</SPan></h4>
+</div>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://wallpapercave.com/wp/wp2417350.jpg" class="d-block w-100" style="height: 450px;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.pinimg.com/originals/09/1c/b8/091cb87d3cf3482cdf496a56d614943f.png" class="d-block w-100" style="height: 450px;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://media.cntravellerme.com/photos/64a6c72751562a659243e175/16:9/w_2560%2Cc_limit/atlantis%2520theroyal-skypoolvilla-terrace-sunset-mr.jpg" class="d-block w-100" style="height: 450px;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/383685833.jpg?k=3cf0fa8edab16b8310508fd7a0cd9fda7a9ff7ad54487084e325cadfff3dff72&o=&hp=1" class="d-block w-100" style="height: 450px;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://cdn.prod.website-files.com/5c6d6c45eaa55f57c6367749/65046bf150d1abb7e5911702_x-65046bcfdc4f0.webp" class="d-block w-100" style="height: 450px;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://wallpapercave.com/wp/wp2417354.jpg" class="d-block w-100" style="height: 450px;" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://c.wallhere.com/photos/02/62/blue_sky_pool_swimming_relax_magic_awesome_enjoy-1116912.jpg!d" class="d-block w-100" style="height: 450px;" alt="...">
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="w-100 p-5 d-flex justify-content-evenly">
+    <div class="card me-2" style="width: 18rem;">
+        <img src="https://atana-hotel-dubai.hotel-ds.com/data/Images/OriginalPhoto/12802/1280283/1280283841/dubai-atana-hotel-image-33.JPEG"  class="card-img-top" alt="..." style="height: 190px;">
+        <div class="card-body">
+            <h5 class="card-title" style="font-family: 'Brush Script MT', cursive; color: rgb(212, 129, 27);">Standard Room ></h5>
+          <a href="{% url 'room' 'standard room' %}" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="card me-2" style="width: 18rem;">
+        <img src="https://png.pngtree.com/background/20230424/original/pngtree-bedroom-with-double-beds-sitting-at-night-with-a-television-and-picture-image_2458678.jpg"   class="card-img-top" alt="..." style="height: 190px;">
+        <div class="card-body">
+            <h5 class="card-title" style="font-family: 'Brush Script MT', cursive; color: rgb(212, 129, 27);">Deluxe Room ></h5>
+            <a href="{% url 'room' 'deluxe room' %}" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="card me-2" style="width: 18rem;">
+        <img src="https://assets.cntraveller.in/photos/64ba838c0d528c30692aa9dd/master/w_1600%2Cc_limit/Aravali%2520Suite%2520Bedroom.jpg"   class="card-img-top" alt="..." style="height: 190px;">
+        <div class="card-body">
+          <h5 class="card-title" style="font-family: 'Brush Script MT', cursive;color: rgb(212, 129, 27);">Suite Room ></h5>
+          <a href="{% url 'room' 'suite room' %}" class="stretched-link"></a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img src="https://www.intergatehotels.jp/kyoto-shijo/wp-content/uploads/sites/2/2022/11/Y322810041.jpg"   class="card-img-top" alt="..." style="height: 190px;">
+        <div class="card-body">
+            <h5 class="card-title" style="font-family: 'Brush Script MT', cursive;color: rgb(212, 129, 27);">Connecting Room ></h5>
+            <a href="{% url 'room' 'connecting room' %}" class="stretched-link"></a>
+        </div> 
+      </div>
+  </div>
+  <footer class="text-white py-4">
+    <div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <h6 style="color: rgb(101, 25, 25)">About Us</h6>
+                <p style="color: rgb(101, 25, 25)" class="text-center">Enjoy comfort, luxury, and top-notch service in a serene and picturesque location. <br> Perfect for business or leisure, our hotel offers well-appointed rooms and exceptional amenities.<br> Experience warm hospitality and a memorable stay with us.</p>
+            </div>
+            <!-- <div class="d-flex flex-column justify-content-center align-items-center">
+                <h6  style="color: rgb(101, 25, 25)">Service</h6>
+                <a id="con" href="#" class="text-white" >Contact Us</a>
+            </div> -->
+            <div class="d-flex justify-content-center align-items-center">
+                <h6 style="color: rgb(101, 25, 25)">Follow Us On</h6>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f" style="color: rgb(101, 25, 25)" ></i></a>
+                <a href="#" class="text-white me-3" ><i class="fab fa-twitter" style="color: rgb(101, 25, 25)" ></i></a>
+                <a href="#" class="text-white me-3" ><i class="fab fa-instagram" style="color: rgb(101, 25, 25)" ></i></a>
+            </div>
+        <div class="text-center mt-4">
+            <p style="color: rgb(101, 25, 25)" >&copy; All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<style>
+  footer{
+    /* background-color: rgba(211, 211, 211, 0.3); */
+    background-color: rgba(198, 154, 154, 0.2);
+  }
+</style>
+{% endblock nav %}

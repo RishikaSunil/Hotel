@@ -1,0 +1,65 @@
+{% extends 'nav.html' %}
+{% block nav %}
+
+
+{% for i in data %}
+<div class="container-fluid p-4">
+    <div class="row border p-3 shadow">
+        <div id="carouselExampleControls{{ forloop.counter }}" class="carousel slide col" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% if i.image1 %}
+                  <div class="carousel-item active">
+                    <img src="{{ i.image1.url }}" class="d-block" style="width:580px; height:330px;" alt="...">
+                  </div>
+                {% endif %}
+                {% if i.image2 %}
+                  <div class="carousel-item {% if not i.image1 %}active{% endif %}">
+                    <img src="{{ i.image2.url }}" class="d-block" style="width:580px; height:330px;" alt="...">
+                  </div>
+                {% endif %}
+                {% if i.image3 %}
+                  <div class="carousel-item {% if not i.image1 and not i.image2 %}active{% endif %}">
+                    <img src="{{ i.image3.url }}" class="d-block" style="width:550px; height:330px;" alt="...">
+                  </div>
+                {% endif %}
+                {% if i.image4 %}
+                  <div class="carousel-item {% if not i.image1 and not i.image2 and not i.image3 %}active{% endif %}">
+                    <img src="{{ i.image4.url }}" class="d-block" style="width:580px; height:350px;" alt="...">
+                  </div>
+                {% endif %}
+                {% if i.image5 %}
+                  <div class="carousel-item {% if not i.image1 and not i.image2 and not i.image3 and not i.image4 %}active{% endif %}">
+                    <img src="{{ i.image5.url }}" class="d-block" style="width:580px; height:350px;" alt="...">
+                  </div>
+                {% endif %}
+            </div>
+              
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls{{ forloop.counter }}" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls{{ forloop.counter }}" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <div class="col d-flex flex-column p-3">
+          <!-- <h1 style="font-family: 'Brush Script MT', cursive; color: rgb(101, 25, 25); text-transform: capitalize;">{{ i.type }}</h1> -->
+          <h2 class="mb-4" style="font-family: 'Brush Script MT', cursive; color: rgb(101, 25, 25); text-transform: capitalize;">{{ i.title }}</h2>
+          <div id="det">
+            <p class="ms-2" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(101, 25, 25);">
+              Rent per day: Rs. {{ i.rent }}
+            </p>
+            <p class="ms-2" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(101, 25, 25);">
+              {{ i.description }}
+            </p>
+            <div class="d-flex justify-content-evenly">
+              <a class="btn btn-outline-danger" href="{% url 'det' i.id%}" style="color: rgb(101, 25, 25); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">View Details</a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock nav %}

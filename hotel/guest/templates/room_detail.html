@@ -1,0 +1,62 @@
+{% extends 'nav.html' %}
+{% block nav %}
+
+<div class="container-fluid p-4" style="background-image: url('https://png.pngtree.com/background/20230708/original/pngtree-luxurious-hotel-bedroom-suite-with-mirrored-wardrobe-stunning-3d-rendering-picture-image_4177469.jpg'); background-size: cover; background-position: center;">    
+    <div class="background-overlay"></div>
+    <div class="row p-3">
+        <div class="col p-3"  style="background-color: rgba(255, 255, 255, 0.5);">
+
+            <h1 class="d-flex flex-column justify-content-center align-items-center" style=" text-transform: capitalize;">{{ room.title }}</h1>
+            <h2>Amenities</h2>
+            <ul>
+                    <li class="li">{{ room.amenities }}</li>
+            </ul>
+            <h2>Bathroom</h2>
+            <ul>
+                    <li class="li">{{ room.bathroom }}</li>
+            </ul>
+            <h2>Special Features</h2>
+            <ul>
+                    <li class="li">{{ room.special_features }}</li>
+            </ul>
+            <h2>Policies</h2>
+            <ul>
+                    <li class="li">{{ room.policies }}</li>
+            </ul>
+            <h2>Additional Information</h2>
+            <ul>
+                    <li class="li">{{ room.additional_info}}</li>
+            </ul>
+            <div id="a" class="d-flex justify-content-center">
+                <a class="btn" href="{% url 'booking' room_id=room.id %}">Book Now</a>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<style>
+    .li{
+        font-family: 'Brush Script MT', cursive;
+        color: rgb(47, 10, 10);
+        font-size: x-large;
+    }
+
+    h2,h1{
+        font-family: 'Brush Script MT', cursive;
+        color: rgb(47, 10, 10);
+        font-weight: 500;
+
+    }
+    
+    .btn{
+        color: rgb(47, 10, 10);
+        font-size: xx-large;  
+        font-family: 'Brush Script MT', cursive;
+        border-color: rgb(47, 10, 10);
+        box-shadow: 0 4px 8px rgba(170, 49, 49, 0.2); 
+        background-color: rgb(187, 164, 167);
+    }
+</style>
+{% endblock nav %}

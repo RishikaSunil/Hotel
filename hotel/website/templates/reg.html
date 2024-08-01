@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+         <style>
+
+
+            @media (min-width: 1025px) {
+.h-custom {
+height: 100vh !important;
+}
+}
+
+body {
+    background-image: url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?cs=srgb&dl=pexels-thorsten-technoman-109353-338504.jpg&fm=jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-width {
+    max-width: 800px;  
+    width: 100%;
+}
+.bg-light-transparent {
+    background-color: rgba(200, 203, 218, 0.8);  
+}
+
+h3{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(59, 94, 207);
+} 
+
+
+.bg-image-vertical {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+}
+
+    @media (min-width: 1025px) {
+    .h-custom-2 {
+    height: 100%;
+    }
+}
+
+/* .form-label-blue {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(59, 94, 207);
+        } */
+         </style>
+
+    </head>
+
+    <body>
+        <section class="h-100 h-custom">
+          {% if messages %}
+          {% for i in messages %}
+            {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+              <div class="alert alert-success">{{i}}</div>
+            {% endif %}
+            {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+              <div class="alert alert-danger">{{i}}</div>
+            {% endif %}             
+          {% endfor %}
+          {% endif %}
+
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-8 col-xl-6 rounded custom-width bg-light-transparent">
+
+                    <div class="card-body p-4 p-md-5">
+                      <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Register Here</h3>
+          
+                      <form class="px-md-2" method="post">
+                        {% csrf_token %}
+
+                        {{form.as_p}}
+                        <!-- <div class="mb-3">
+                          <label for="{{ form.first_name.id_for_label }}" class="form-label form-label-blue">First Name</label>
+                          {{ form.first_name }}
+                      </div>
+                      <div class="mb-3">
+                          <label for="{{ form.last_name.id_for_label }}" class="form-label form-label-blue">Last Name</label>
+                          {{ form.last_name }}
+                      </div>
+                      <div class="mb-3">
+                          <label for="{{ form.email.id_for_label }}" class="form-label form-label-blue">Email</label>
+                          {{ form.email }}
+                      </div>
+                      <div class="mb-3">
+                          <label for="{{ form.username.id_for_label }}" class="form-label form-label-blue">Username</label>
+                          {{ form.username }}
+                      </div>
+                      <div class="mb-3">
+                          <label for="{{ form.password1.id_for_label }}" class="form-label form-label-blue">Password</label>
+                          {{ form.password1 }}
+                      </div>
+                      <div class="mb-3">
+                          <label for="{{ form.password2.id_for_label }}" class="form-label form-label-blue">Confirm Password</label>
+                          {{ form.password2 }}
+                      </div>m -->
+
+
+                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                          <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-light btn-lg">Register</button>
+                        </div>
+                        <div class="form-check d-flex justify-content-center mb-5">
+                          <p>Already a user?<a href="{% url 'log' %}">Login</a></p>
+                        </div>
+
+          
+                      </form>
+          
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+    </body>
+</html>
